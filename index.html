@@ -1,1 +1,295 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoAd Forge | AI Video Ads Generator</title>
+    <meta name="description" content="Generate professional video ads for TikTok, Instagram Reels, YouTube Shorts. Script + actual downloadable video — free, instant, no signup.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo"><span class="logo-icon">🎬</span> VideoAd <span class="accent">Forge</span></div>
+            <p class="header-tagline">Script Generator + Real Downloadable Video Ads</p>
+        </div>
+    </header>
+
+    <main class="app-container">
+
+        <!-- ─── LEFT: Input Panel ─── -->
+        <aside class="input-panel glass-card">
+            <h2 class="panel-title">📋 Product Details</h2>
+
+            <div class="form-group">
+                <label for="productName">Product Name <span class="req">*</span></label>
+                <input type="text" id="productName" placeholder="e.g. PowerFlow Pro Blender" maxlength="40">
+            </div>
+            <div class="form-group">
+                <label for="productCategory">Category</label>
+                <select id="productCategory">
+                    <option value="tech">⚡ Tech & Gadgets</option>
+                    <option value="beauty">💄 Beauty & Skincare</option>
+                    <option value="fitness">💪 Fitness & Health</option>
+                    <option value="food">🍔 Food & Beverage</option>
+                    <option value="fashion">👗 Fashion & Apparel</option>
+                    <option value="home">🏠 Home & Lifestyle</option>
+                    <option value="pet">🐾 Pet Products</option>
+                    <option value="finance">💰 Finance & Apps</option>
+                    <option value="education">📚 Education & Courses</option>
+                    <option value="travel">✈️ Travel</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="benefits">Key Benefits <span class="req">*</span></label>
+                <textarea id="benefits" rows="4" placeholder="One per line:&#10;• Saves 2 hours daily&#10;• Works for all skin types&#10;• 30-day money back"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="audience">Target Audience <span class="req">*</span></label>
+                <input type="text" id="audience" placeholder="e.g. busy moms, gym beginners">
+            </div>
+            <div class="form-group">
+                <label for="offer">Price / Offer <span class="optional">(optional)</span></label>
+                <input type="text" id="offer" placeholder="e.g. $49 • 50% OFF Today">
+            </div>
+            <div class="form-group">
+                <label for="painPoint">Main Pain Point</label>
+                <input type="text" id="painPoint" placeholder="e.g. never enough time">
+            </div>
+
+            <div class="divider"></div>
+            <h2 class="panel-title">🎬 Ad Settings</h2>
+
+            <div class="form-group">
+                <label>Platform</label>
+                <div class="chip-group" id="platformGroup">
+                    <button class="chip active" data-value="tiktok">TikTok</button>
+                    <button class="chip" data-value="reels">Instagram Reels</button>
+                    <button class="chip" data-value="shorts">YouTube Shorts</button>
+                    <button class="chip" data-value="youtube">YouTube Ad</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Ad Style</label>
+                <div class="chip-group" id="styleGroup">
+                    <button class="chip active" data-value="hook">🪝 Hook & Hold</button>
+                    <button class="chip" data-value="review">💬 Review</button>
+                    <button class="chip" data-value="problem">😤 Problem→Solution</button>
+                    <button class="chip" data-value="results">✨ Results</button>
+                    <button class="chip" data-value="hype">📣 Hype Drop</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Tone</label>
+                <div class="chip-group" id="toneGroup">
+                    <button class="chip active" data-value="casual">😎 Casual</button>
+                    <button class="chip" data-value="hype">⚡ Hype</button>
+                    <button class="chip" data-value="emotional">🥺 Emotional</button>
+                    <button class="chip" data-value="educational">🧠 Educational</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Duration</label>
+                <div class="chip-group" id="durationGroup">
+                    <button class="chip" data-value="15">⚡ 15s</button>
+                    <button class="chip active" data-value="30">🎯 30s</button>
+                    <button class="chip" data-value="60">🎬 60s</button>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+            <h2 class="panel-title">🎨 Video Style</h2>
+            <div class="form-group">
+                <div class="chip-group" id="videoStyleGroup">
+                    <button class="chip active" data-value="neon">🌌 Neon Dark</button>
+                    <button class="chip" data-value="fire">🔥 Fire</button>
+                    <button class="chip" data-value="ocean">🌊 Ocean</button>
+                    <button class="chip" data-value="gold">✨ Gold Luxury</button>
+                    <button class="chip" data-value="clean">⬜ Clean White</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Video Format</label>
+                <div class="chip-group" id="formatGroup">
+                    <button class="chip active" data-value="portrait">📱 Portrait 9:16</button>
+                    <button class="chip" data-value="square">⬛ Square 1:1</button>
+                    <button class="chip" data-value="landscape">🖥️ Landscape 16:9</button>
+                </div>
+            </div>
+
+            <button class="generate-btn" id="generateBtn">
+                <span class="btn-icon">⚡</span> Generate Script + Video Ad
+            </button>
+        </aside>
+
+        <!-- ─── RIGHT: Output Panel ─── -->
+        <section class="output-panel">
+
+            <!-- Empty State -->
+            <div class="empty-state glass-card" id="emptyState">
+                <div class="empty-icon">🎬</div>
+                <h3>Your Video Ad Will Appear Here</h3>
+                <p>Fill in product details, pick your style, and hit <strong>Generate</strong>.</p>
+                <ul class="feature-list">
+                    <li>🎥 Real downloadable video (.webm)</li>
+                    <li>🪝 Animated hook + scenes</li>
+                    <li>🎙️ Full voiceover script</li>
+                    <li>📷 B-roll shot list</li>
+                    <li>🎵 Music suggestions</li>
+                    <li>#️⃣ Hashtags + caption</li>
+                </ul>
+            </div>
+
+            <!-- Output Tabs -->
+            <div class="output-tabs hidden" id="outputTabs">
+                <button class="tab-btn active" data-tab="video">🎬 Video Ad</button>
+                <button class="tab-btn" data-tab="script">📝 Script</button>
+                <button class="tab-btn" data-tab="assets">📦 Assets</button>
+            </div>
+
+            <!-- ── VIDEO TAB ── -->
+            <div class="tab-content hidden" id="tabVideo">
+                <div class="video-workspace">
+
+                    <!-- Canvas Preview -->
+                    <div class="canvas-wrapper glass-card" id="canvasWrapper">
+                        <div class="canvas-label">🎬 Live Video Preview</div>
+                        <div class="canvas-container" id="canvasContainer">
+                            <canvas id="adCanvas"></canvas>
+                            <div class="canvas-overlay hidden" id="canvasOverlay">
+                                <div class="recording-badge">⏺ RECORDING</div>
+                                <div class="rec-progress-wrap">
+                                    <div class="rec-bar" id="recBar"></div>
+                                </div>
+                                <div class="rec-time" id="recTime">0s / 30s</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Controls -->
+                    <div class="video-controls glass-card">
+                        <div class="controls-title">🎮 Video Controls</div>
+                        <div class="controls-row">
+                            <button class="ctrl-btn preview-btn" id="previewBtn">
+                                ▶️ Preview Animation
+                            </button>
+                            <button class="ctrl-btn stop-btn hidden" id="stopBtn">
+                                ⏹ Stop
+                            </button>
+                        </div>
+                        <div class="controls-row">
+                            <button class="ctrl-btn record-btn" id="recordBtn">
+                                ⏺ Record & Download Video
+                            </button>
+                        </div>
+                        <div class="record-info" id="recordInfo">
+                            <div class="info-icon">ℹ️</div>
+                            <div>Video is rendered in real-time. A 30s ad takes ~30s to record. Click <strong>Record</strong> then download when complete.</div>
+                        </div>
+                        <div class="download-ready hidden" id="downloadReady">
+                            <div class="dl-icon">✅</div>
+                            <div>
+                                <strong>Video Ready!</strong>
+                                <button class="dl-btn" id="dlBtn">⬇️ Download Video (.webm)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SCRIPT TAB ── -->
+            <div class="tab-content hidden" id="tabScript">
+                <div class="script-output" id="scriptOutput">
+                    <div class="output-header">
+                        <div class="output-meta" id="outputMeta"></div>
+                        <div class="output-actions">
+                            <button class="action-btn" id="regenerateBtn">🔄 Regenerate</button>
+                            <button class="action-btn" id="copyAllBtn">📋 Copy All</button>
+                            <button class="action-btn" id="downloadScriptBtn">⬇️ Download Script</button>
+                        </div>
+                    </div>
+
+                    <div class="script-section hook-section">
+                        <div class="section-header-row">
+                            <h3><span class="section-icon">🪝</span> HOOK <span class="timecode">0–3s</span></h3>
+                            <button class="copy-btn" data-target="hookContent">Copy</button>
+                        </div>
+                        <div class="section-body hook-body" id="hookContent"></div>
+                    </div>
+
+                    <div class="script-section">
+                        <div class="section-header-row">
+                            <h3><span class="section-icon">🎬</span> SCENE BREAKDOWN</h3>
+                            <button class="copy-btn" data-target="scenesContent">Copy</button>
+                        </div>
+                        <div class="section-body" id="scenesContent"></div>
+                    </div>
+
+                    <div class="script-section">
+                        <div class="section-header-row">
+                            <h3><span class="section-icon">🎙️</span> VOICEOVER SCRIPT</h3>
+                            <button class="copy-btn" data-target="voiceoverContent">Copy</button>
+                        </div>
+                        <div class="section-body" id="voiceoverContent"></div>
+                    </div>
+
+                    <div class="script-section cta-section">
+                        <div class="section-header-row">
+                            <h3><span class="section-icon">📣</span> CALL TO ACTION</h3>
+                            <button class="copy-btn" data-target="ctaContent">Copy</button>
+                        </div>
+                        <div class="section-body" id="ctaContent"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── ASSETS TAB ── -->
+            <div class="tab-content hidden" id="tabAssets">
+                <div class="assets-grid">
+                    <div class="script-section">
+                        <div class="section-header-row">
+                            <h3><span class="section-icon">📷</span> B-ROLL SHOT LIST</h3>
+                            <button class="copy-btn" data-target="brollContent">Copy</button>
+                        </div>
+                        <div class="section-body" id="brollContent"></div>
+                    </div>
+                    <div class="script-section">
+                        <div class="section-header-row">
+                            <h3><span class="section-icon">🎵</span> MUSIC & MOOD</h3>
+                            <button class="copy-btn" data-target="musicContent">Copy</button>
+                        </div>
+                        <div class="section-body" id="musicContent"></div>
+                    </div>
+                    <div class="script-section">
+                        <div class="section-header-row">
+                            <h3><span class="section-icon">#️⃣</span> HASHTAGS</h3>
+                            <button class="copy-btn" data-target="hashtagContent">Copy</button>
+                        </div>
+                        <div class="section-body hashtag-body" id="hashtagContent"></div>
+                    </div>
+                    <div class="script-section">
+                        <div class="section-header-row">
+                            <h3><span class="section-icon">✍️</span> CAPTION</h3>
+                            <button class="copy-btn" data-target="captionContent">Copy</button>
+                        </div>
+                        <div class="section-body" id="captionContent"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div class="toast" id="toast">✅ Copied!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
